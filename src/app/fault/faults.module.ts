@@ -8,19 +8,7 @@ import { FaultCardComponent } from './fault-card/fault-card.component';
 import { FaultService } from '../_services/fault.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FaultTemplateFormComponent } from './fault-template-form/fault-template-form.component';
-
-// @NgModule({
-//   declarations: [
-//     FaultsComponent,
-//     FaultDetailsComponent,
-//     FaultCardComponent,
-//     FaultTemplateFormComponent,
-//   ],
-//   imports: [CommonModule, FormsModule, RouterModule, HttpClientModule],
-//   exports: [FaultsComponent, FaultDetailsComponent, FaultCardComponent],
-//   providers: [FaultService],
-// })
-// export class FaultsModule {}
+import { AddFaultComponent } from './add-fault/add-fault.component';
 
 const routes: Routes = [
   {
@@ -29,6 +17,7 @@ const routes: Routes = [
       { path: '', component: FaultsComponent },
       { path: 'details/:id', component: FaultDetailsComponent },
       { path: 'edit/:id', component: FaultTemplateFormComponent },
+      { path: 'add', component: AddFaultComponent },
     ],
   },
 ];

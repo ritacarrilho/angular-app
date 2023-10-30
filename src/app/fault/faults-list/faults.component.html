@@ -1,6 +1,6 @@
 <div class="card-container">
   <app-fault-card
-    *ngFor="let fault of faults"
+    *ngFor="let fault of faultsList"
     [detail]="fault"
     (remove)="handleRemove($event)"
   ></app-fault-card>

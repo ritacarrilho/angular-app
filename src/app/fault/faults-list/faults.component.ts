@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Fault } from '../../models/fault';
+import { Component, OnInit, inject, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+
 import { FaultService } from 'src/app/_services/fault.service';
+import { Fault } from '../../models/fault';
 
 @Component({
   selector: 'app-faults',
@@ -9,26 +12,27 @@ import { FaultService } from 'src/app/_services/fault.service';
   styleUrls: ['./faults.component.css'],
 })
 export class FaultsComponent implements OnInit {
-  faults: Fault[] = [];
+  faultsList: Fault[] = [];
+  searchValue = '';
+  faultService: FaultService = inject(FaultService);
 
-  // dependency injection
-  constructor(private router: Router, private faultService: FaultService) {}
-
-  handleRemove(event: Fault) {
-    console.log(`Delete fault ${event.id}`);
-    this.faultService.deleteFault(event.id).subscribe();
-    this.faults = this.faults.filter((fault: Fault) => {
-      return fault.id !== event.id;
-    });
-  }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.getFaults();
   }
 
+  handleRemove(event: Fault) {
+    console.log(`Delete fault ${event.id}`);
+    this.faultService.deleteFault(event.id).subscribe();
+    this.faultsList = this.faultsList.filter((fault: Fault) => {
+      return fault.id !== event.id;
+    });
+  }
+
   getFaults(): void {
     this.faultService.getFaults().subscribe((data: Fault[]) => {
-      this.faults = data;
+      this.faultsList = data;
     });
   }
 
@@ -38,7 +42,7 @@ export class FaultsComponent implements OnInit {
       return;
     }
     this.faultService.addFault({ name } as Fault).subscribe((fault) => {
-      this.faults.push(fault);
+      this.faultsList.push(fault);
     });
   }
 }

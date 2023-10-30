@@ -14,7 +14,6 @@ export class FaultTemplateFormComponent implements OnInit {
 
   constructor(
     private faultService: FaultService,
-    private router: Router,
     private route: ActivatedRoute,
     private location: Location
   ) {}

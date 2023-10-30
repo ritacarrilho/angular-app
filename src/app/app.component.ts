@@ -17,7 +17,7 @@ export class AppComponent {
   }
 
   addFault(): void {
-    // this.router.navigate(['/faults']);
+    this.router.navigate(['/add']);
     console.log('Add new Fault');
   }
 }

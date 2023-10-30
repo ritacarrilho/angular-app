@@ -33,7 +33,7 @@ export class FaultService {
 
   addFault(fault: Fault): Observable<Fault> {
     return this.http.post<Fault>(this.BASE_URL, fault, this.httpOptions).pipe(
-      tap((newHero: Fault) => console.log(`added hero w/ id=${newHero.id}`)),
+      tap((newFault: Fault) => console.log(`added fault w/ id=${newFault.id}`)),
       catchError(this.handleError<Fault>('addFault'))
     );
   }
