@@ -1,0 +1,8 @@
+<div class="card-container">
+  <app-fault-card
+    *ngFor="let fault of faults"
+    [detail]="fault"
+    (remove)="handleRemove($event)"
+  ></app-fault-card>
+  <router-outlet></router-outlet>
+</div>

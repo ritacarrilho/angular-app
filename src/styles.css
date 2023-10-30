@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --slb-light-grey: #99a6b5;
+  --slb-light-grey-2: #5e6670;
+  --slb-light-grey-3: #414954;
+  --slb-light-grey-4: #424242;
+  --slb-light-grey-5: #39414d;
+  --slb-dark-grey: #2d3443;
+  --slb-dark-grey-2: #323232;
+  --slb-dark-grey-3: #272c39;
+  --slb-dark-grey-4: #23272c;
+  --slb-white: #ffffff;
+  --slb-blue: #1683fb;
+  --slb-green: #24a159;
+  --slb-icon-off: #485460;
+
+  background-color: #272c39;
+}
+
+button {
+  color: var(--slb-dark-grey-4);
+  background-color: #6ba7ff;
+  border: 1px solid #6ba7ff;
+  border-radius: 4px;
+  padding: 9px;
+  font-weight: 700;
+  cursor: pointer;
+}

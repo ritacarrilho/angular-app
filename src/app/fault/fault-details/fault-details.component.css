@@ -1,0 +1,41 @@
+.detail-wrapper {
+  padding: 25px 50px;
+  width: 70%;
+  margin: 70px auto;
+  min-height: 500px;
+  border-radius: 7px;
+  background-color: rgb(45 52 67);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 1px solid var(--slb-light-grey);
+}
+
+.detail-title {
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-title h1 {
+  font-weight: 600;
+}
+
+.detail-title h3 {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+#rocket {
+  width: 150px;
+  height: auto;
+  background: var(--slb-dark-grey-2);
+  padding: 45px 39%;
+}
+
+p {
+  font-size: 18px;
+}

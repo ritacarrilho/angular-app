@@ -1,0 +1,18 @@
+<div class="form-container">
+  <h2>Modify Fault</h2>
+  <form #form="ngForm" (ngSubmit)="handleFault(fault)">
+    <label for="name">Fault Name :</label>
+    <input type="text" [(ngModel)]="fault.name" name="name" />
+    <label for="description">Fault Description :</label>
+    <textarea
+      [(ngModel)]="fault.description"
+      name="description"
+      rows="10"
+    ></textarea>
+    <label for="engine">Fault Engine :</label>
+    <input type="text" [(ngModel)]="fault.engine" name="engine" />
+    <button type="submit" [disabled]="!form.valid">Save</button>
+  </form>
+  <!-- <p>Model : {{ fault | json }}</p>
+  <p>Form : {{ form.value | json }}</p> -->
+</div>

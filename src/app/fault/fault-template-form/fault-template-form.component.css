@@ -1,0 +1,30 @@
+.form-container {
+  color: var(--slb-white);
+  margin-top: 50px;
+  padding: 0 25px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: center;
+  gap: 15px;
+}
+
+form input,
+textarea {
+  padding: 15px 5px;
+  border-radius: 7px;
+}
+
+form label {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+form button {
+  width: 70px;
+  margin: 0 auto;
+}
