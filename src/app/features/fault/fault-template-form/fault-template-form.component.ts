@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FaultService } from '../../_services/fault.service';
-import { Fault } from '../../models/fault';
+import { FaultService } from '../services/fault.service';
+import { Fault } from '../models/fault';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -20,6 +20,7 @@ export class FaultTemplateFormComponent implements OnInit {
 
   ngOnInit() {
     this.fault = {} as Fault;
+    // resolver
     this.route.params.subscribe((data: Params) => {
       this.faultService
         .getFault(this.route.snapshot.params['id'])

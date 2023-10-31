@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { Fault } from 'src/app/models/fault';
+import { Fault } from 'src/app/features/fault/models/fault';
 import { Router } from '@angular/router';
 import { EventEmitter } from '@angular/core';
-import { FaultService } from 'src/app/_services/fault.service';
+import { FaultService } from 'src/app/features/fault/services/fault.service';
 
 @Component({
   selector: 'app-fault-card',
@@ -16,7 +16,7 @@ export class FaultCardComponent implements OnInit {
   @Output()
   remove: EventEmitter<any> = new EventEmitter();
 
-  constructor(private router: Router, private faultService: FaultService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 

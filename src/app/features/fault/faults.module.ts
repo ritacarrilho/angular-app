@@ -5,10 +5,10 @@ import { FaultsComponent } from './faults-list/faults.component';
 import { FaultDetailsComponent } from './fault-details/fault-details.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FaultCardComponent } from './fault-card/fault-card.component';
-import { FaultService } from '../_services/fault.service';
+import { FaultService } from '../fault/services/fault.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FaultTemplateFormComponent } from './fault-template-form/fault-template-form.component';
-import { AddFaultComponent } from './add-fault/add-fault.component';
+import { AddFaultComponent } from '../fault/add-fault/add-fault.component';
 
 const routes: Routes = [
   {
@@ -28,6 +28,7 @@ const routes: Routes = [
     FaultDetailsComponent,
     FaultCardComponent,
     FaultTemplateFormComponent,
+    AddFaultComponent,
   ],
   imports: [
     CommonModule,

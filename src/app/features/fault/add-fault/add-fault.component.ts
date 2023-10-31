@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FaultService } from '../../_services/fault.service';
-import { Fault } from '../../models/fault';
+import { FaultService } from '../services/fault.service';
+import { Fault } from '../models/fault';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -23,9 +23,10 @@ export class AddFaultComponent implements OnInit {
   }
 
   addFault(fault: Fault) {
-    this.faultService.addFault(fault).subscribe();
-    console.log(this.fault);
-    this.goBack();
+    if (this.fault) {
+      this.faultService.addFault(fault).subscribe(() => this.goBack());
+      console.log(this.fault);
+    }
   }
 
   goBack(): void {

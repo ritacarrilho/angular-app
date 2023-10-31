@@ -2,8 +2,8 @@ import { Component, OnInit, EventEmitter, Output, inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { FaultService } from 'src/app/_services/fault.service';
-import { Fault } from 'src/app/models/fault';
+import { FaultService } from 'src/app/features/fault/services/fault.service';
+import { Fault } from 'src/app/features/fault/models/fault';
 
 @Component({
   selector: 'app-fault-details',

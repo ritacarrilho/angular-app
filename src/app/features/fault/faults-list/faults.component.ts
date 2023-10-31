@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
-import { FaultService } from 'src/app/_services/fault.service';
-import { Fault } from '../../models/fault';
+import { FaultService } from 'src/app/features/fault/services/fault.service';
+import { Fault } from '../models/fault';
 
 @Component({
   selector: 'app-faults',
@@ -24,10 +24,14 @@ export class FaultsComponent implements OnInit {
 
   handleRemove(event: Fault) {
     console.log(`Delete fault ${event.id}`);
-    this.faultService.deleteFault(event.id).subscribe();
-    this.faultsList = this.faultsList.filter((fault: Fault) => {
-      return fault.id !== event.id;
-    });
+    this.faultService
+      .deleteFault(event.id)
+      .pipe()
+      .subscribe(() => {
+        this.faultsList = this.faultsList.filter((fault: Fault) => {
+          return fault.id !== event.id;
+        });
+      });
   }
 
   getFaults(): void {

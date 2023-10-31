@@ -43,7 +43,7 @@
 
   <a
     class="add-icon"
-    *ngIf="this.router.url !== '/faults'"
+    *ngIf="this.router.url !== '/faults' && this.router.url !== '/'"
     (click)="goBack()"
     [ngStyle]="{ cursor: 'pointer' }"
   >
@@ -56,7 +56,7 @@
   </a>
   <a
     class="add-icon"
-    *ngIf="this.router.url === '/faults'"
+    *ngIf="this.router.url === '/faults' || this.router.url === '/'"
     (click)="addFault()"
     [ngStyle]="{ cursor: 'pointer' }"
   >
