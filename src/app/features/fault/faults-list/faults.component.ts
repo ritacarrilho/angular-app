@@ -1,7 +1,5 @@
-import { Component, OnInit, inject, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 import { FaultService } from 'src/app/features/fault/services/fault.service';
 import { Fault } from '../models/fault';
@@ -16,7 +14,7 @@ export class FaultsComponent implements OnInit {
   searchValue = '';
   faultService: FaultService = inject(FaultService);
 
-  constructor(private router: Router) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.getFaults();

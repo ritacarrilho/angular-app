@@ -1,14 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Fault } from '../models/fault';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { FaultService } from '../services/fault.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-fault-template-form',
@@ -23,11 +17,6 @@ export class FaultTemplateFormComponent implements OnInit {
     description: ['', Validators.required],
     engine: ['', Validators.required],
   });
-  // faultForm = new FormGroup({
-  //   name: new FormControl(''),
-  //   description: new FormControl(''),
-  //   engine: new FormControl(''),
-  // });
   isSubmited: boolean = false;
   isAddMode?: boolean = true;
 
@@ -35,8 +24,7 @@ export class FaultTemplateFormComponent implements OnInit {
     private fb: FormBuilder,
     private faultService: FaultService,
     private route: ActivatedRoute,
-    private router: Router,
-    private location: Location
+    private router: Router
   ) {}
 
   ngOnInit(): void {

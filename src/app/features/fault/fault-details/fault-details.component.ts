@@ -1,6 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, inject } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 import { FaultService } from 'src/app/features/fault/services/fault.service';
 import { Fault } from 'src/app/features/fault/models/fault';
@@ -11,8 +10,6 @@ import { Fault } from 'src/app/features/fault/models/fault';
   styleUrls: ['./fault-details.component.css'],
 })
 export class FaultDetailsComponent implements OnInit {
-  // route: ActivatedRoute = inject(ActivatedRoute);
-  // faultService = inject(FaultService);
   fault: Fault | undefined;
 
   @Output()
@@ -20,8 +17,7 @@ export class FaultDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private faultService: FaultService,
-    private location: Location
+    private faultService: FaultService
   ) {}
 
   ngOnInit(): void {

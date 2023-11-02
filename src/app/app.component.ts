@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -14,7 +14,6 @@ export class AppComponent {
 
   goBack(): void {
     this.router.navigate(['/faults']);
-    // this.location.back();
   }
 
   addFault(): void {

@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Fault } from 'src/app/features/fault/models/fault';
-import { ButtonComponent } from 'src/app/shared/button/button.component';
 
 @Component({
   selector: 'app-fault-card',

@@ -8,9 +8,7 @@ import { FaultCardComponent } from './fault-card/fault-card.component';
 import { FaultService } from '../fault/services/fault.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FaultTemplateFormComponent } from './fault-template-form/fault-template-form.component';
-import { AddFaultComponent } from '../fault/add-fault/add-fault.component';
 import { ButtonComponent } from 'src/app/shared/button/button.component';
-import { EditFaultComponent } from './edit-fault/edit-fault.component';
 
 const routes: Routes = [
   {
@@ -30,8 +28,6 @@ const routes: Routes = [
     FaultDetailsComponent,
     FaultCardComponent,
     FaultTemplateFormComponent,
-    AddFaultComponent,
-    EditFaultComponent,
     ButtonComponent,
   ],
   imports: [

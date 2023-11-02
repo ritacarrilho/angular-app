@@ -30,9 +30,9 @@
     ></textarea
     ><span
       *ngIf="
-        faultForm.get('name')?.invalid &&
-        (faultForm.get('name')?.dirty ||
-          faultForm.get('name')?.touched ||
+        faultForm.get('description')?.invalid &&
+        (faultForm.get('description')?.dirty ||
+          faultForm.get('description')?.touched ||
           isSubmited)
       "
       class="error"
@@ -53,9 +53,9 @@
     />
     <span
       *ngIf="
-        faultForm.get('name')?.invalid &&
-        (faultForm.get('name')?.dirty ||
-          faultForm.get('name')?.touched ||
+        faultForm.get('engine')?.invalid &&
+        (faultForm.get('engine')?.dirty ||
+          faultForm.get('engine')?.touched ||
           isSubmited)
       "
       class="error"

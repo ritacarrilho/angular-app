@@ -29,13 +29,13 @@ svg.material-icons:not(:last-child) {
   color: var(--slb-white);
 }
 
-.card-title {
+.card .card-title {
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
 
-.card-title svg {
+.card .card-title svg {
   width: 25px;
 }
 
@@ -47,7 +47,7 @@ svg.material-icons:not(:last-child) {
   margin-right: 0;
 }
 
-.card.card-small {
+.card .card-small {
   height: 16px;
   width: 168px;
 }
@@ -85,25 +85,6 @@ svg.material-icons:not(:last-child) {
   gap: 10px;
   width: 100%;
   justify-content: space-between;
-}
-
-label {
-  font-size: 20px;
-  font-weight: 600;
-  align-self: flex-start;
-}
-
-p {
-  align-self: flex-start;
-}
-
-button {
-  flex: 1;
-}
-
-button:hover {
-  background-color: var(--slb-blue);
-  border-color: var(--slb-blue);
 }
 
 #rocket {
