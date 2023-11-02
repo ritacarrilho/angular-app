@@ -13,7 +13,8 @@ export class AppComponent {
   title = 'Subsurface Framework Building';
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['/faults']);
+    // this.location.back();
   }
 
   addFault(): void {

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FaultsComponent } from './faults-list/faults.component';
 import { FaultDetailsComponent } from './fault-details/fault-details.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -18,8 +18,8 @@ const routes: Routes = [
     children: [
       { path: '', component: FaultsComponent },
       { path: 'details/:id', component: FaultDetailsComponent },
-      { path: 'edit/:id', component: EditFaultComponent },
-      { path: 'add', component: AddFaultComponent },
+      { path: 'edit/:id', component: FaultTemplateFormComponent },
+      { path: 'add', component: FaultTemplateFormComponent },
     ],
   },
 ];
@@ -38,6 +38,7 @@ const routes: Routes = [
     CommonModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes),
   ],
   exports: [

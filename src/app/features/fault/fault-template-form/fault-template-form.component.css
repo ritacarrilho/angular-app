@@ -7,6 +7,12 @@ form {
   gap: 15px;
 }
 
+.form-container {
+  color: var(--slb-white);
+  margin-top: 90px;
+  padding: 0 25px;
+}
+
 form input,
 textarea {
   padding: 15px 5px;

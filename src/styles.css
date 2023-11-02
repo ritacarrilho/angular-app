@@ -21,9 +21,3 @@ app-button {
   display: flex;
   justify-content: center;
 }
-
-.form-container {
-  color: var(--slb-white);
-  margin-top: 50px;
-  padding: 0 25px;
-}

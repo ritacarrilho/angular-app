@@ -1,44 +1,102 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Fault } from '../models/fault';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { FaultService } from '../services/fault.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-fault-template-form',
   templateUrl: './fault-template-form.component.html',
   styleUrls: ['./fault-template-form.component.css'],
 })
-export class FaultTemplateFormComponent {
-  @Input() fault!: Fault;
-  @Output() handleClick = new EventEmitter();
-  @Output() modifiedFault!: Fault;
-  @Input() buttonText: string = '';
-  @Input() routeRedirect: any;
+export class FaultTemplateFormComponent implements OnInit {
+  @Input() buttonText: string = 'Save';
+  fault!: Fault;
+  faultForm = this.fb.group({
+    name: ['', Validators.required],
+    description: ['', Validators.required],
+    engine: ['', Validators.required],
+  });
+  // faultForm = new FormGroup({
+  //   name: new FormControl(''),
+  //   description: new FormControl(''),
+  //   engine: new FormControl(''),
+  // });
+  isSubmited: boolean = false;
+  isAddMode?: boolean = true;
 
-  constructor() {}
+  constructor(
+    private fb: FormBuilder,
+    private faultService: FaultService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private location: Location
+  ) {}
 
-  onClick(fault: Fault) {
-    this.handleClick.emit(fault);
+  ngOnInit(): void {
+    this.fault = {} as Fault;
+
+    if (this.route.snapshot.routeConfig?.path?.toString().includes('edit')) {
+      this.route.params.subscribe((data: Params) => {
+        this.faultService
+          .getFault(this.route.snapshot.params['id'])
+          .subscribe((data: Fault) => {
+            this.fault = data;
+            console.log(this.fault);
+            this.faultForm.get('name')?.setValue(this.fault.name);
+            this.faultForm.get('description')?.setValue(this.fault.description);
+            this.faultForm.get('engine')?.setValue(this.fault.engine);
+          });
+      });
+
+      this.isAddMode = false;
+    } else {
+      this.isAddMode = true;
+    }
   }
 
-  // onClick() {
-  //   console.log('Clicked');
-  // }
-  // ngOnInit() {
-  //   this.fault = {} as Fault;
-  //   // resolver
-  //   this.route.params.subscribe((data: Params) => {
-  //     this.faultService
-  //       .getFault(this.route.snapshot.params['id'])
-  //       .subscribe((data: Fault) => {
-  //         this.fault = data;
-  //       });
-  //   });
-  // }
+  onSubmit(): void {
+    this.fault = <Fault>this.faultForm.value;
 
-  // handleFault(object: any) {
-  //   if (this.fault) {
-  //     this.faultService.updateFault(object);
-  //     this.goBack();
-  //   }
-  //   // this.router.navigate(['/faults'], { relativeTo: this.route });
-  // }
+    if (this.route.snapshot.routeConfig?.path?.toString().includes('edit')) {
+      console.log(
+        'Submitted form',
+        this.faultForm.value,
+        this.faultForm.invalid,
+        this.fault
+      );
+      this.fault.id = this.route.snapshot.params['id'];
+      this.faultService.updateFault(this.fault);
+      this.goBack(`/faults/details/${this.fault.id}`);
+
+      this.isSubmited = true;
+    }
+
+    if (this.route.snapshot.routeConfig?.path?.toString().includes('add')) {
+      console.log(
+        'Submitted form',
+        this.faultForm.value,
+        'form',
+        this.faultForm.invalid,
+        'fault',
+        this.fault
+      );
+      this.faultService
+        .addFault(this.fault)
+        .subscribe(() => this.goBack('/faults'));
+    }
+    this.isSubmited = true;
+  }
+
+  validateInputs() {}
+
+  goBack(route: string): void {
+    this.router.navigate([route], { relativeTo: this.route });
+  }
 }

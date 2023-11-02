@@ -16,6 +16,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   ],
 })
 export class ButtonComponent {
+  @Input() type: string = 'button';
+  @Output() btnClick = new EventEmitter();
+  @Input() isDisabled = false;
+  @Input() routeRedirect: any;
   public buttonText = '';
 
   @Input()
@@ -25,11 +29,6 @@ export class ButtonComponent {
   get name(): string {
     return this.buttonText;
   }
-
-  @Input() type: string = 'button';
-  @Output() btnClick = new EventEmitter();
-  @Input() isDisabled = false;
-  @Input() routeRedirect: any;
 
   constructor() {}
 

@@ -71,14 +71,18 @@ a:hover {
   color: #125699;
 }
 
+.content {
+  position: relative;
+}
+
 footer {
   display: flex;
   align-items: center;
-  justify-content: center;
   line-height: 20px;
   position: absolute;
-  bottom: 15px;
+  bottom: -45px;
   left: 50%;
+  color: #99a6b5;
   transform: translate(-50%, -50%);
 }
 
