@@ -1,8 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { Fault } from 'src/app/features/fault/models/fault';
-import { Router } from '@angular/router';
 import { EventEmitter } from '@angular/core';
-import { FaultService } from 'src/app/features/fault/services/fault.service';
+import { Fault } from 'src/app/features/fault/models/fault';
+import { ButtonComponent } from 'src/app/shared/button/button.component';
 
 @Component({
   selector: 'app-fault-card',

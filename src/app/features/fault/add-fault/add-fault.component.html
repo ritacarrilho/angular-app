@@ -1,6 +1,7 @@
 <div class="form-container">
-  <h2>Modify Fault</h2>
-  <form #form="ngForm" (ngSubmit)="addFault(fault)">
+  <h2>Add Fault</h2>
+  <app-fault-template-form [buttonText]="'Save'"> </app-fault-template-form>
+  <!-- <form #form="ngForm" (ngSubmit)="onClick(fault)">
     <label for="name">Fault Name :</label>
     <input type="text" [(ngModel)]="fault.name" name="name" />
     <label for="description">Fault Description :</label>
@@ -11,8 +12,12 @@
     ></textarea>
     <label for="engine">Fault Engine :</label>
     <input type="text" [(ngModel)]="fault.engine" name="engine" />
-    <button type="submit" [disabled]="!form.valid">Save</button>
-  </form>
-  <p>Model : {{ fault | json }}</p>
-  <p>Form : {{ form.value | json }}</p>
+    <app-button
+      [text]="'Save'"
+      [type]="'submit'"
+      [isDisabled]="!form.valid"
+    ></app-button>
+  </form> -->
+  <!-- <p>Model : {{ fault | json }}</p>
+  <p>Form : {{ form.value | json }}</p> -->
 </div>

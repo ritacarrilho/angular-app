@@ -59,7 +59,15 @@
   <hr />
 
   <div class="btn-container">
-    <button [routerLink]="['/faults/details/', detail.id]">Launch</button>
-    <button (click)="onRemove()">Delete</button>
+    <app-button
+      [routeRedirect]="['/faults/details/', detail.id]"
+      text="Launch"
+      [isDisabled]="false"
+    ></app-button>
+    <app-button
+      (btnClick)="onRemove()"
+      text="Delete"
+      [isDisabled]="false"
+    ></app-button>
   </div>
 </div>

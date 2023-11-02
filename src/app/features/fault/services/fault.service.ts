@@ -26,7 +26,7 @@ export class FaultService {
 
   getFault(id: number): Observable<Fault> {
     return this.http.get<Fault>(`${this.BASE_URL}/${id}`).pipe(
-      tap((_) => console.log(`fetched hero id=${id}`)),
+      tap((_) => console.log(`fetched fault id=${id}`)),
       catchError(this.handleError<Fault>(`getFault id=${id}`))
     );
   }

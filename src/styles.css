@@ -17,12 +17,13 @@
   background-color: #272c39;
 }
 
-button {
-  color: var(--slb-dark-grey-4);
-  background-color: #6ba7ff;
-  border: 1px solid #6ba7ff;
-  border-radius: 4px;
-  padding: 9px;
-  font-weight: 700;
-  cursor: pointer;
+app-button {
+  display: flex;
+  justify-content: center;
+}
+
+.form-container {
+  color: var(--slb-white);
+  margin-top: 50px;
+  padding: 0 25px;
 }

@@ -12,11 +12,7 @@ import { Location } from '@angular/common';
 export class AddFaultComponent implements OnInit {
   fault!: Fault;
 
-  constructor(
-    private faultService: FaultService,
-    private route: ActivatedRoute,
-    private location: Location
-  ) {}
+  constructor(private faultService: FaultService, private location: Location) {}
 
   ngOnInit() {
     this.fault = {} as Fault;

@@ -1,9 +1,3 @@
-.form-container {
-  color: var(--slb-white);
-  margin-top: 50px;
-  padding: 0 25px;
-}
-
 form {
   display: flex;
   flex-direction: column;
